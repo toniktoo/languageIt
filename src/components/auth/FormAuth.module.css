@@ -1,0 +1,19 @@
+.formAuth {
+    width: 300px;
+}
+
+.title {
+    margin: 0;
+}
+
+.lineBottomTitle {
+    margin: 4px 0 6px 0;
+}
+
+.btnsWrap {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

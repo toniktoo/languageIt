@@ -1,0 +1,48 @@
+.header {
+  grid-area: 1 / 1 / 2 / 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  height: 48px;
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+.titleText {
+  margin: 0 0 0 8px;
+}
+
+.userWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+.userTitleText {
+  margin: 0 8px 0 0;
+}
+
+.weather {
+  margin-left: auto;
+  margin-right: 200px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.weatherImg {
+  height: 38px;
+  border-radius: 19px;
+}
+
+.weatherCity {
+  margin: 0 0 0 8px;
+}

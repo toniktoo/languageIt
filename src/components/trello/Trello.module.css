@@ -1,0 +1,168 @@
+.trello {
+    width: 100%;
+    height: 100%;
+    color: #172b4d;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.board {
+    display: flex;
+}
+
+.list {
+    width: 272px;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    margin-right: 8px;
+}
+
+.list:hover .formBtnDelete {
+    display: flex;
+}
+
+.listAddWrap:hover .formBtnDelete {
+    display: flex;
+}
+
+.listContent {
+    background-color: #ebecf0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    position: relative;
+    white-space: normal;
+}
+
+.listHeader {
+    padding: 8px;
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.listHeaderTitle {
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: none;
+    font-weight: 600;
+    min-height: 20px;
+    max-height: 256px;
+    margin: 0;
+    max-width: 235px;
+}
+
+.listCards {
+    overflow-x: hidden;
+    margin: 0 4px;
+    padding: 0 4px;
+    z-index: 1;
+    min-height: 0;
+}
+
+.listCard {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 8px;
+    padding: 6px 8px 6px;
+    font-weight: 600;
+    color: #5e6c84;
+    align-items: center;
+}
+
+.listCard:hover {
+    background-color: #f4f5f7;
+    color: #091e42;
+}
+
+/* блок добавить колонку или карточку */
+.listAddWrap {
+    min-height: 32px;
+    height: 100%;
+}
+
+.listAdd {
+    width: 272px;
+    min-height: 32px;
+    height: 100%;
+    background-color: #ebecf0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    position: relative;
+    white-space: normal;
+    align-items: center;
+    justify-content: center;
+}
+
+.listAddContent {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    color: #5e6c84;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.listAddContent:hover {
+    background-color: rgba(9, 30, 66, .08);
+    color: #172b4d;
+}
+
+.listAddTitle {
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: none;
+    font-weight: 600;
+    min-height: 20px;
+    padding: 4px 8px;
+    max-height: 256px;
+    color: #5e6c84;
+
+}
+
+.formAdd {
+    width: 100%;
+    padding: 8px;
+}
+
+.formBtnsWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+.formBtnDelete {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    width: 30px;
+    height: 24px;
+    font-size: 18px;
+    cursor: pointer;
+    transform: 2s;
+}
+
+.formBtnDelete:hover {
+    background-color: rgba(7, 23, 51, 0.08);
+    color: #172b4d;
+}
