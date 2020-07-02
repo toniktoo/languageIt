@@ -13,6 +13,7 @@ import { rootReducer } from './redux/reducer';
 import { BrowserRouter } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
+import thunk from 'redux-thunk';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWNIM8nrFOhi7qozG3S0dehaBKYf16Tm8',
@@ -31,7 +32,7 @@ const initialState = {};
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware())
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 const rrfConfig = {
@@ -49,14 +50,12 @@ const rrfProps = {
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ReactReduxFirebaseProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ReactReduxFirebaseProvider>
+  </Provider>,
   rootElement
 );

@@ -28,6 +28,8 @@
 
 .userTitleText {
   margin: 0 8px 0 0;
+  cursor: pointer;
+  color: #000;
 }
 
 .weather {

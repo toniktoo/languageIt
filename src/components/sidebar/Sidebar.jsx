@@ -8,8 +8,9 @@ import {
   DesktopOutlined,
   ContainerOutlined,
   UnorderedListOutlined,
+  SolutionOutlined,
 } from '@ant-design/icons';
-import { routes } from '../../constants/routes'
+import { routes } from '../../constants/routes';
 
 const { SubMenu } = Menu;
 
@@ -53,6 +54,9 @@ const Sidebar = () => {
         </Menu.Item>
         <Menu.Item key={routes.trello} icon={<UnorderedListOutlined />}>
           <Link to={routes.trello}>Trello</Link>
+        </Menu.Item>
+        <Menu.Item key={routes.headhunter} icon={<SolutionOutlined />}>
+          <Link to={routes.headhunter}>hh.ru</Link>
         </Menu.Item>
       </Menu>
     </div>

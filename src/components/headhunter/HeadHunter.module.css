@@ -1,0 +1,53 @@
+.hh {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.formInput {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.settingsBtnWrap {
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.headerTitle {
+    font-size: 40px;
+    margin: 0 0 0 50px;
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lists {
+    display: flex;
+    width: 100%;
+}
+
+.listItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paginationWrap {
+    position: absolute;
+    bottom: 16px;
+}

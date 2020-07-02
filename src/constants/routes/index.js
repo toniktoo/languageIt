@@ -5,6 +5,8 @@ export const routes = {
   blog: '/blog',
   message: '/message',
   trello: '/trello',
+  profileUser: '/profile-user',
+  headhunter: '/hh.ru',
 
   /* COURSES */
   course: '/course',

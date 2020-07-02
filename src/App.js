@@ -12,6 +12,8 @@ import Trello from './components/trello/Trello';
 import FormSignUp from './components/auth/sign-up/FormSignUp';
 import { CourseJS } from './components/courses/javascript';
 import { routes } from './constants/routes';
+import { ProfileUser } from './components/profile';
+import { HeadHunter } from './components/headhunter/HeadHunter';
 
 function App() {
   return (
@@ -24,12 +26,14 @@ function App() {
           <Route path={routes.home} exact component={Home} />
           <Route path={routes.signIn} component={FormSignIn} />
           <Route path={routes.signUp} component={FormSignUp} />
+          <Route path={routes.profileUser} component={ProfileUser} />
           <Route path={routes.course} component={Courses} />
           <Route path={routes.python} component={CoursePython} />
           <Route path={routes.javascript} component={CourseJS} />
           <Route path={routes.blog} component={Blog} />
           <Route path={routes.message} component={Message} />
           <Route path={routes.trello} component={Trello} />
+          <Route path={routes.headhunter} component={HeadHunter} />
           {/* <PrivateRoute path="/todos">
           <Todos />
         </PrivateRoute> */}

@@ -28,7 +28,9 @@ const Header = ({ currentUser }) => {
     if (!isEmpty(auth)) {
       return (
         <>
-          <span className={styles.userTitleText}>{displayName}</span>
+          <Link to={routes.profileUser} className={styles.userTitleText}>
+            {displayName}
+          </Link>
           <ExportOutlined
             style={{ fontSize: '20px' }}
             onClick={() => firebase.logout()}

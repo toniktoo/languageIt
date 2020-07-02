@@ -6,18 +6,29 @@ import { Link } from 'react-router-dom';
 import { UserAddOutlined } from '@ant-design/icons';
 import { FormInput } from '../../helpersComponents';
 import { routes } from '../../../constants/routes';
+import { FirebaseAuth } from '../firebase';
+import { useFirebase } from 'react-redux-firebase';
+import { useHistory } from 'react-router-dom';
 
 const FormSignUp = (props) => {
+  const firebase = useFirebase();
+  const history = useHistory();
+
   return (
     <div>
       <h1 className={styles.title}>Registration</h1>
       <Formik
         initialValues={{
-          email: 'toniktoo@mail.ru',
-          password: 'Swimm1998er',
+          email: '',
+          password: '',
         }}
-        onSubmit={(values, actions) => {
-          actions.setSubmitting(false);
+        onSubmit={(values) => {
+          const { email, password } = values;
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(history.push('/'))
+            .catch((err) => console.log(`EEEEERRRO ${err}`));
         }}
       >
         {({ handleSubmit }) => (
@@ -37,7 +48,7 @@ const FormSignUp = (props) => {
               placeholder="enter password..."
             />
             <div className={styles.btnsWrap}>
-              <Input type="submit" value="Sign in" style={{ width: '100px' }} />
+              <Input type="submit" value="Sign up" style={{ width: '100px' }} />
               <Link to={routes.signIn} className="linkWithImgRigth">
                 <span>Login</span>
                 <UserAddOutlined />
@@ -46,6 +57,7 @@ const FormSignUp = (props) => {
           </form>
         )}
       </Formik>
+      <FirebaseAuth />
     </div>
   );
 };

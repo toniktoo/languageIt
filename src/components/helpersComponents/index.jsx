@@ -15,7 +15,7 @@ export const FormInput = ({ name, ...props }) => (
 );
 
 export const TitleContent = ({ title }) => (
-  <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+  <Divider orientation="left" style={{ color: '#333', fontWeight: 'bold' }}>
     {title}
   </Divider>
 );

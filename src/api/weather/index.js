@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const fetchWeatherApi = async () => {
   const URL = 'http://api.weatherstack.com';
+  /* БЕСПЛАТНЫЙ КЛЮЧ */
   const API_KEY = 'ee2c00a09ba65e4467143d28625d3fa2';
 
   /* SANKT-PETERSBURG - MURINO */
