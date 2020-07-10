@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Profile.module.css';
-import { TitleContent } from '../helpersComponents';
 import foto from './user.png';
 import { Button } from 'antd';
 import { useSelector } from 'react-redux';
@@ -11,7 +10,7 @@ export const ProfileUser = () => {
   );
   return (
     <div className={styles.profile}>
-      <TitleContent title="Профиль пользователя" />
+      {/* <TitleContent title="Профиль пользователя" /> */}
       <div className={styles.content}>
         <div className={styles.blockFoto}>
           <img

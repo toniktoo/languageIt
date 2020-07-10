@@ -1,15 +1,12 @@
 export const routes = {
   home: '/',
+  aboutSite: '/about-site',
+  aboutMe: '/about-me',
+  exampleAppsPage: '/example-apps-page',
   signIn: '/sign-in',
   signUp: '/sign-up',
-  blog: '/blog',
-  message: '/message',
-  trello: '/trello',
   profileUser: '/profile-user',
+  trello: '/trello',
   headhunter: '/hh.ru',
-
-  /* COURSES */
-  course: '/course',
-  javascript: '/javascript',
-  python: '/python',
+  aviasales: '/aviasales',
 };

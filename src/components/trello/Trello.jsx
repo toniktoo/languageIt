@@ -1,14 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Spin } from 'antd';
-import styles from './Trello.module.css';
-import { ComponentAddList } from './componentAddList';
-import { TitleContent } from '../helpersComponents';
+import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { groupBy, omitBy } from 'lodash';
-import { TrelloList } from './list/TrelloList';
 
-const Trello = () => {
+import { AuthIsLoaded, DataIsLoaded } from '../Loaders';
+import { TrelloList } from './TrelloList';
+import { ComponentAddList } from './ComponentAddList';
+import { HeaderApp } from '../HeaderApp';
+import Fade from 'react-reveal/Fade';
+
+const Wraper = styled.div`
+  width: 100%;
+  color: #172b4d;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  padding: 8px 16px 16px 16px;
+`;
+
+const Board = styled.div`
+  display: flex;
+`;
+
+export const Trello = () => {
   const { uid } = useSelector((state) => state.firebase.auth);
   const [trelloList, setTrelloList] = useState([]);
   useFirestoreConnect(
@@ -29,42 +44,37 @@ const Trello = () => {
   );
 
   /* ПОЛУЧАЕМ ОБЬЕКТ МАССИВОВ СО СПИСКОМ ЛИСТОВ И КАРТОЧЕК */
-  const objTrelloList = useSelector((state) => state.firestore.ordered.lists);
+  const dataList = useSelector((state) => state.firestore.ordered.lists);
 
   useEffect(() => {
-    if (objTrelloList) {
+    if (dataList) {
       /* УБИРАЕМ ИЗ ОБЬЕКТА МАССИВ С НАЗВАНИЯМИ ЛИСТОВ */
-      const listWithoutTitles = omitBy(
-        objTrelloList,
-        (list) => list.id === 'lists'
-      );
+      const listWithoutTitles = omitBy(dataList, (list) => list.id === 'lists');
       /* ГРУППИРУЕМ ОБЬЕКТЫ ПО ЛИСТАМ */
       const gpoupLists = groupBy(listWithoutTitles, (list) => list.list);
       setTrelloList(Object.entries(gpoupLists));
     }
-  }, [objTrelloList]);
+  }, [dataList]);
+
+  const renderList = () => {
+    return trelloList.map((list, index) => (
+      <TrelloList key={list[0] + index} title={list[0]} cards={list[1]} />
+    ));
+  };
 
   return (
-    <>
-      {!objTrelloList ? (
-        <Spin size="large" />
-      ) : (
-        <div className={styles.trello}>
-          <TitleContent title="Trello" />
-          <div className={styles.board}>
-            {trelloList.map((list, index) => (
-              <TrelloList
-                key={list[0] + index}
-                title={list[0]}
-                cards={list[1]}
-              />
-            ))}
-            <ComponentAddList />
-          </div>
-        </div>
-      )}
-    </>
+    <AuthIsLoaded>
+      <DataIsLoaded data={dataList}>
+        <Fade>
+          <Wraper>
+            <HeaderApp title="Trello" />
+            <Board>
+              {renderList()}
+              <ComponentAddList />
+            </Board>
+          </Wraper>
+        </Fade>
+      </DataIsLoaded>
+    </AuthIsLoaded>
   );
 };
-
-export default Trello;

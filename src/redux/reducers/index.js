@@ -1,24 +1,55 @@
 import { handleActions } from 'redux-actions';
 import {
-  fetchJobsRequest,
-  fetchJobsSuccess,
-  fetchJobsFailure,
+  fetchSnippetVacanciesRequest,
+  fetchSnippetVacanciesSuccess,
+  fetchSnippetVacanciesFailure,
+  fetchFullVacanciesRequest,
+  fetchFullVacanciesSuccess,
+  fetchFullVacanciesFailure,
+  changeExperience,
+  changePage,
 } from '../actions';
 
 const initState = {
-  jobs: null,
+  fullVacancies: [],
+  snippetVacancies: [],
+  isLoadingJobs: true,
+  experience: 1,
+  currentPage: 1
 };
 
 export const reducerJobs = handleActions(
   {
-    [fetchJobsRequest]: (state, payload) => {
-      return { ...state };
+    [fetchSnippetVacanciesRequest]: (state, { payload: { isLoadingJobs } }) => {
+      return { ...state, isLoadingJobs };
     },
-    [fetchJobsSuccess]: (state, { payload: { jobs } }) => {
-      return { ...state, jobs };
+    [fetchSnippetVacanciesSuccess]: (
+      state,
+      { payload: { snippetVacancies, isLoadingJobs } }
+    ) => {
+      return { ...state, snippetVacancies, isLoadingJobs };
     },
-    [fetchJobsFailure]: (state, payload) => {
-      return { ...state };
+    [fetchSnippetVacanciesFailure]: (state, { payload: { isLoadingJobs } }) => {
+      return { ...state, isLoadingJobs };
+    },
+
+    [fetchFullVacanciesRequest]: (state, { payload: { isLoadingJobs } }) => {
+      return { ...state, isLoadingJobs };
+    },
+    [fetchFullVacanciesSuccess]: (
+      state,
+      { payload: { fullVacancies, isLoadingJobs } }
+    ) => {
+      return { ...state, fullVacancies, isLoadingJobs };
+    },
+    [fetchFullVacanciesFailure]: (state, { payload: { isLoadingJobs } }) => {
+      return { ...state, isLoadingJobs };
+    },
+    [changeExperience]: (state, { payload: { experience } }) => {
+      return { ...state, experience };
+    },
+    [changePage]: (state, { payload: { currentPage } }) => {
+      return { ...state, currentPage };
     },
   },
   initState
